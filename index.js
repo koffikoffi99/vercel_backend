@@ -14,7 +14,9 @@ app.use(cors());
 app.use(express.json());
 
 databaseconnection();
-
+app.get('/', (req, res) => {
+    res.send('API is running...');
+});
 app.get('/get', (req, res) => {
     TodoModel.find()
         .then(result => res.json(result))
